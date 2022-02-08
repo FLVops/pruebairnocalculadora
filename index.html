@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      La CirnoCalculadora
+      </title>
+    <style>
+      body{
+	  font-size: 1.5em;
+      }
+        .tecla{
+            width: 2.5em;
+            height: 2.5em;
+            text-align: center;
+            border-right: 1px solid #AAAAAA;
+            border-bottom: 1px solid #AAAAAA;
+	    cursor: pointer;
+	    font-weight: 600;
+	    background-color: #eeeeee;
+	    border-radius: 8px;
+	}
+	.tecla:hover{
+	    background-color: #ffffff;
+	    
+	    }
+	    
+            
+        }
+    </style>
+ 
+    <script>
+      let aru = "0";
+      let ru = 0;
+      let operacion = "";
+      let numero1 = 0;
+      let numero2 = 0;
+      
+      function agregar(p){
+	  if(aru == "0" || aru == "&nbsp;" ){
+	      aru = p;
+	  }else{
+	      aru += p;
+	  }
+    // ru = Number(aru);
+    mostrar();
+}
+      
+      function borrar(){
+	  aru = 0;
+	  mostrar();
+      }
+      
+      function mostrar(){
+	/*
+  if( isNaN(aru) ) aru = "No es un Número";
+dftyuio
+*/	  
+	  document.getElementById('res').innerHTML = aru;
+      }
+      
+      function sqr(){
+	  let aux;
+	  aux = Number(aru);
+	 
+	  aux = aux * aux;
+
+	  if( aux == Infinity ) aux = "Infinito";
+	  
+	  aru = String(aux);
+	  
+	  mostrar();
+      }
+      
+      function factorial(){
+	  let r =1;
+	  for(let i = aru; i>0; i--){
+	      r *= i;
+	      aru = String(r);
+	      mostrar();
+	  }
+	  
+      }
+      
+      function sqrt(){
+	  let raiz;
+	  raiz = Number(aru);
+	  raiz = Math.sqrt(aru);
+	  if( raiz == 25.80697580112788 ) raiz = "no u";
+	  aru = String(raiz)
+	  mostrar();
+      }
+
+      function signo(sig){
+	  operacion = sig;
+	  numero1= Number(aru);
+	  aru = "&nbsp;";
+	  mostrar();
+      }
+     function romano(num) {
+     }
+      
+      function igual(){
+	  numero2 = Number(aru);
+	  switch( operacion ){
+	  case "+":
+	      ru = numero1 + numero2;
+	      break;
+	  case "-":
+	      ru = numero1 - numero2;
+	      break;
+	  case "/":
+	      ru = numero1 / numero2;
+	      break;
+	  case "*":
+	      ru = numero1 * numero2;
+	      break;
+	  default:
+
+	      break;
+	  }
+	  aru = String(ru);
+	  numero1 = numero2 = 0;
+	  mostrar();
+      }
+    </script>
+  
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+  <body style=" background-image:url('https://img5.goodfon.com/original/1229x691/9/fe/by-sakuraba-hikaru-touhou-project-cirno-daiyousei-proekt-vos.jpg');background-repeat:no-repeat;background-size:100% 120%;">
+    <div style="width:100%; text-align: center;"><center>
+
+    <table border="0" style="border: 0.2em solid rgb(0,0,99);background-color:#FFFFFF;opacity:0.7;">
+        <tr>
+            <th colspan="4"><div>Calculadora Cirno</div></th>
+        </tr>
+	<tr>
+            <th colspan="4"><div id="res" style="width:100%; b6acskground-color:#eeeeee;">&nbsp;</div></th>
+        </tr>
+        <tr>
+            <td class="tecla" onClick="agregar('1');">1</td> 
+            <td class="tecla" onClick="agregar('2');">2</td> 
+            <td class="tecla" onClick="agregar('3');">3</td> 
+            <td class="tecla" onClick="signo('/');">%</td>
+        </tr>
+        <tr>
+            <td class="tecla" onClick="agregar('4');">4</td> 
+            <td class="tecla" onClick="agregar('5');">5</td>
+            <td class="tecla" onClick="agregar('6');">6</td>
+            <td class="tecla" onClick="signo('-');">-</td>
+        </tr>
+        <tr>
+            <td class="tecla" onClick="agregar('7');">7</td>
+            <td class="tecla" onClick="agregar('8');">8</td>
+            <td class="tecla" onClick="agregar('9');">9</td>
+            <td class="tecla" onClick="signo('+');">+</td>
+        </tr>
+        <tr>
+            <td class="tecla" onClick="borrar();">C</td>
+            <td class="tecla" onClick="agregar('0');">0</td>
+            <td class="tecla" onClick="signo('*');">X</td>
+            <td class="tecla" onClick="igual();">=</td>
+        </tr>
+        <tr>
+            <td class="tecla" colspan="1" onClick="sqr();">x<sup>2</sup></td>
+            <td class="tecla" onClick="sqrt()">√</td>
+	    <td class="tecla" onClick="factorial()">¡</td>
+	    <td class="tecla" onClick="romano()">R</td>
+        </tr>
+
+
+    </table>
+</center>
+    </div>
+    
+    <canvas>
+
+        </canvas>
+
+        <script>
+            alert("Bienvenidos a la Cirno Calculadora");
+        </script> 
+    
+
+
+
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6da66cd10bdbef36',m:'lyRewQNyYkyzuL_VtV_ZwrRTNPQPDb_.z3_i4vZrdgo-1644339740-0-AQHoLNrGEkjvm9OyMVljC0qeiUrU/d3phPwaoBYxtmmZl+VQ4TfbSdnibq06O0+rW+wE1ezMIvzsrCzzSEQ0KYF7kdKV4qdziG2JITPgJe24zuTD/OP4WUPyr43Mu0W+zf54kemQF7A6p22iD1uLDciPcWLw5uwRZCm7PXXes91AUQoQwivKuOKO2ctaf+YNvM7NVrdc0mZ02tbjYJ8+HZ4=',s:[0x42b732c5a4,0xeb78cf8128],}})();</script></body>
+</html>
+
+
+<!--
+
+Elementos que se van a usar:
+
+function
+document.getElementById('res').innerHTML;
+if
+switch
+break
+parseInt('')
+parseFloat('')
+Number()
+String()
++=
+-=
+/=
+*=
+==
+!=
+let
+''  y ""
+"\""
+tabla de desiciones
+=
+
+
+-->
